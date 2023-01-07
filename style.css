@@ -1,17 +1,14 @@
 * {
   box-sizing: border-box;
 }
-
 /*---------- common ----------*/
 a {
   text-decoration: none;
   display: block;
 }
-
 .btn {
   width: 100%;
 }
-
 /*---------- column 1 ----------*/
 .navbar {
   display: flex;
@@ -44,7 +41,6 @@ a {
   border: none;
   background: transparent;
   margin: 0;
-  /* padding: 7px 8px; */
   font-size: 14px;
   border: 1px solid transparent;
 }
@@ -55,8 +51,9 @@ input[type="search"]::placeholder {
   display: none;
 }
 h1 {
+  text-align: left;
+  padding: 0;
   font-size: 12px;
-  padding: 10px;
 }
 .icon {
   color:#116EFD;
@@ -65,10 +62,16 @@ h1 {
 }
 .newmail {
   margin: 5px 0;
+  color: #fff;
+}
+.newmail:hover {
+  background-color: #fbc107 !important;
+  color: #fff;
+  opacity: 0.7;
 }
 .nav-right {
   margin-top: 10px;
-  display: none
+  display: none;
 }
 h2 {
   font-size: 14px;
@@ -80,7 +83,7 @@ li {
   list-style: none;
   margin-bottom: 20px;
   margin-left: 10px;
-  border: 1px solid #aaa;
+  border: 1px solid #116EFD;
   border-radius: 8px;
 }
 li:hover {
@@ -99,7 +102,6 @@ li>a>p {
   margin-top: 5px;
   margin-bottom: 0;
 }
-
 /*---------- column 2 ----------*/
 .col2 {
   height: 100%;
@@ -111,7 +113,7 @@ li>a>p {
 }
 .card {
   overflow-y: scroll;
-  height: 200px;
+  height: 700px;
 }
 .card-body {
   border: 1px solid #aaa;
@@ -120,10 +122,26 @@ li>a>p {
 .card-body>a {
   padding: 10px;
   color: black;
+  height: 100%;
 }
 .card-body>a:hover {
-  background-color: #116efd;
   color: #fff;
+  background-color: #116efd;
+}
+.card-body>a>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-body>a>div>h5::before {
+  content: "";
+  display: block;
+  background: url(img/circle-user-solid.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 0 6px 0 0;
+  background-color: #fff;
 }
 h5 {
   font-size: 14px;
@@ -132,10 +150,28 @@ h5 {
 .card-body>a>p {
   font-size: 14px;
 }
-
+.fixed-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  color: #fff;
+}
+.mobile-only {
+    width: 100%;
+    height: 10vh;
+    padding: 2px;
+}
+.mobile-only-btn {
+  margin: 0 !important;
+}
 /*---------- column 3 ----------*/
+.col3 {
+  display: none;
+}
 .mainContent {
-  border-top: 1px solid #aaa;
   margin-top: 2px;
 }
 .fromTo {
@@ -144,6 +180,7 @@ h5 {
   font-size: 12px;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
+  border-top: 1px solid #aaa;
   background-color: #cfe2ff;
 } 
 .fromTo>p {
@@ -176,6 +213,10 @@ textarea {
 .btnGroup>.btn-primary {
   font-size: 12px;
 }
+.btnGroup>.btn-primary:hover {
+  background-color: #fbc107 !important;
+
+}
 .btn-primary + .btn-primary {
   margin-left: 10px;
 }
@@ -184,7 +225,7 @@ textarea {
 @media screen and (min-width: 768px){
   /*----- Tablet column 1 -----*/
   .col1 {
-      border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
     }
   .navbar {
     flex-direction: row;
@@ -197,23 +238,18 @@ textarea {
     display: block;
     margin-left: 40px;
   }
-  h1 {
-    text-align: left;
+  h2 {
+    font-size: 12px;
     padding: 0;
   }
   .nav-right{
     display: block;
-  }
-  h2 {
-    font-size: 12px;
-    padding: 0;
   }
   .list-group {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
   }
-
 /*----- Tablet column 2 -----*/
   .searchbar {
     display: block;
@@ -221,13 +257,15 @@ textarea {
   .search-btn {
     background: transparent url(img/magnifying-glass-solid.svg) no-repeat center;
   }
+  .col2>h2 {
+    margin-top: 10px;
+  }
   .card {
     min-height: 750px;
   }
   /*----- Tablet column 3 -----*/
-  .mainText {
-    height: 100%;
-    padding-bottom: 30px;
+  .col3 {
+    display: block;
   }
   .fromTo {
     padding: 10px;
@@ -235,16 +273,22 @@ textarea {
   }
   .mainText {
     height: 100%;
+    padding-bottom: 30px;
   }
   .btnGroup>.btn-primary {
     font-size: 16px;
   }
+  .fixed-btn {
+    display: none;
+  }
 }
+
 /*---------- Desktop View ----------*/
 @media screen and (min-width: 992px){
   /*----- Desktop common -----*/
   .col1 {
-    border-bottom: none;
+    border: 1px solid #aaa;
+    border-radius: 8px;
   }
   h2 {
     font-size: 16px;
@@ -291,12 +335,7 @@ textarea {
     margin-top: 0;
   }
   /*----- Desktop column2 -----*/
-
-  /*----- Desktop column3 -----*/
-  .fromTo {
-    border-top: 1px solid #aaa;
-  }
-  .mainContent {
-    border-top: none;
+  .col2>h2 {
+    margin-top: 0;
   }
 }
